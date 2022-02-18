@@ -37,35 +37,38 @@ namespace WithClassSQL_2_CRUD
                 baglanti.Close();
             }
         }
-        public DataTable HastalariGetir()
+        public DataTable KayıtListele(string sorguCumlesi)
         {
-            sorguCumlesi = $"SELECT * FROM tblHastalar";
             adaptor = new SqlDataAdapter(sorguCumlesi, Baglan());
             dt = new DataTable();
             adaptor.Fill(dt);
             return dt;
         }
-        public void Ekle(string TcNo, string Ad, string Soyad, string Cinsiyet, string Adres, string Telefon, string Mail)
+        /*public void Ekle(string sorguCumlesi)
         {
-            sorguCumlesi = $"INSERT INTO tblHastalar VALUES('{Ad}','{Soyad}','{TcNo}','{Cinsiyet}','{Adres}','{Telefon}','{Mail}')";
+            komut = new SqlCommand(sorguCumlesi, Baglan());
+            komut.ExecuteNonQuery();
+            Kapat();
+        }*/
+        public void islem(string sorguCumlesi)
+        {
+            //bu metot insert update ve delete işlemlerini yapabilir.
             komut = new SqlCommand(sorguCumlesi, Baglan());
             komut.ExecuteNonQuery();
             Kapat();
         }
-        public void Duzelt(string TcNo, string Ad, string Soyad, string Cinsiyet, string Adres, string Telefon, string Mail, string ID)
+       /* public void Duzelt(string sorguCumlesi)
         {
-            sorguCumlesi = $"UPDATE tblHastalar SET TcNo='{TcNo}', Ad='{Ad}', Soyad='{Soyad}', Cinsiyet='{Cinsiyet}', Adres='{Adres},'Telefon='{Telefon}',Mail='{Mail}',ID='{ID}'";
             komut = new SqlCommand(sorguCumlesi, Baglan());
             komut.ExecuteNonQuery();
             Kapat();
-        }
-        private void Sil(string TcNo, string Ad, string Soyad, string Cinsiyet, string Adres, string Telefon, string Mail, string ID)
+        }*/
+      /*  private void Sil(string TcNo, string Ad, string Soyad, string Cinsiyet, string Adres, string Telefon, string Mail, string ID)
         {
-            sorguCumlesi = $"DELETE tblHastalar WHERE TcNo='{TcNo}', Ad='{Ad}', Soyad='{Soyad}', Cinsiyet='{Cinsiyet}', Adres='{Adres},'Telefon='{Telefon}',Mail='{Mail}',ID='{ID}'";
             komut = new SqlCommand(sorguCumlesi, Baglan());
             komut.ExecuteNonQuery();
             Kapat();
-        }
+        }*/
         public bool KontrolEt(params string[] e)
         {
             bool donus = false;

@@ -31,7 +31,8 @@ namespace WithClassSQL_2_CRUD
         {
             this.dgvHastalar = new System.Windows.Forms.DataGridView();
             this.btnYeniKayit = new System.Windows.Forms.Button();
-            this.btnDuzelt = new System.Windows.Forms.Button();
+            this.btnHastalar = new System.Windows.Forms.Button();
+            this.btnBolumler = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHastalar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,22 +54,33 @@ namespace WithClassSQL_2_CRUD
             this.btnYeniKayit.UseVisualStyleBackColor = true;
             this.btnYeniKayit.Click += new System.EventHandler(this.btnYeniKayit_Click);
             // 
-            // btnDuzelt
+            // btnHastalar
             // 
-            this.btnDuzelt.Location = new System.Drawing.Point(553, 148);
-            this.btnDuzelt.Name = "btnDuzelt";
-            this.btnDuzelt.Size = new System.Drawing.Size(75, 23);
-            this.btnDuzelt.TabIndex = 2;
-            this.btnDuzelt.Text = "Duzelt";
-            this.btnDuzelt.UseVisualStyleBackColor = true;
-            this.btnDuzelt.Click += new System.EventHandler(this.btnDuzelt_Click);
+            this.btnHastalar.Location = new System.Drawing.Point(553, 148);
+            this.btnHastalar.Name = "btnHastalar";
+            this.btnHastalar.Size = new System.Drawing.Size(75, 23);
+            this.btnHastalar.TabIndex = 2;
+            this.btnHastalar.Text = "Hastalar";
+            this.btnHastalar.UseVisualStyleBackColor = true;
+            this.btnHastalar.Click += new System.EventHandler(this.btnHastalar_Click);
+            // 
+            // btnBolumler
+            // 
+            this.btnBolumler.Location = new System.Drawing.Point(572, 192);
+            this.btnBolumler.Name = "btnBolumler";
+            this.btnBolumler.Size = new System.Drawing.Size(55, 38);
+            this.btnBolumler.TabIndex = 3;
+            this.btnBolumler.Text = "bolumler";
+            this.btnBolumler.UseVisualStyleBackColor = true;
+            this.btnBolumler.Click += new System.EventHandler(this.btnBolumler_Click);
             // 
             // FormAna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(640, 343);
-            this.Controls.Add(this.btnDuzelt);
+            this.Controls.Add(this.btnBolumler);
+            this.Controls.Add(this.btnHastalar);
             this.Controls.Add(this.btnYeniKayit);
             this.Controls.Add(this.dgvHastalar);
             this.Name = "FormAna";
@@ -85,7 +97,8 @@ namespace WithClassSQL_2_CRUD
 
         private System.Windows.Forms.DataGridView dgvHastalar;
         private System.Windows.Forms.Button btnYeniKayit;
-        private System.Windows.Forms.Button btnDuzelt;
+        private System.Windows.Forms.Button btnHastalar;
+        private System.Windows.Forms.Button btnBolumler;
     }
 }
 

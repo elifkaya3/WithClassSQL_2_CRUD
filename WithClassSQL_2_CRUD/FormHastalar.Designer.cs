@@ -1,7 +1,7 @@
 ﻿
 namespace WithClassSQL_2_CRUD
 {
-    partial class Duzelt
+    partial class FormHastalar
     {
         /// <summary>
         /// Required designer variable.
@@ -44,7 +44,6 @@ namespace WithClassSQL_2_CRUD
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnDuzelt = new System.Windows.Forms.Button();
             this.btnYeniKayit = new System.Windows.Forms.Button();
             this.dgvHastalar = new System.Windows.Forms.DataGridView();
             this.txtID = new System.Windows.Forms.TextBox();
@@ -192,21 +191,11 @@ namespace WithClassSQL_2_CRUD
             this.label1.TabIndex = 16;
             this.label1.Text = "TcNo";
             // 
-            // btnDuzelt
-            // 
-            this.btnDuzelt.Location = new System.Drawing.Point(583, 118);
-            this.btnDuzelt.Name = "btnDuzelt";
-            this.btnDuzelt.Size = new System.Drawing.Size(75, 23);
-            this.btnDuzelt.TabIndex = 33;
-            this.btnDuzelt.Text = "Duzelt";
-            this.btnDuzelt.UseVisualStyleBackColor = true;
-            this.btnDuzelt.Click += new System.EventHandler(this.btnDuzelt_Click);
-            // 
             // btnYeniKayit
             // 
-            this.btnYeniKayit.Location = new System.Drawing.Point(583, 77);
+            this.btnYeniKayit.Location = new System.Drawing.Point(178, 374);
             this.btnYeniKayit.Name = "btnYeniKayit";
-            this.btnYeniKayit.Size = new System.Drawing.Size(75, 23);
+            this.btnYeniKayit.Size = new System.Drawing.Size(100, 64);
             this.btnYeniKayit.TabIndex = 32;
             this.btnYeniKayit.Text = "Yeni Kayıt";
             this.btnYeniKayit.UseVisualStyleBackColor = true;
@@ -230,22 +219,21 @@ namespace WithClassSQL_2_CRUD
             // 
             // btnSil
             // 
-            this.btnSil.Location = new System.Drawing.Point(705, 114);
+            this.btnSil.Location = new System.Drawing.Point(310, 374);
             this.btnSil.Name = "btnSil";
-            this.btnSil.Size = new System.Drawing.Size(75, 23);
+            this.btnSil.Size = new System.Drawing.Size(99, 66);
             this.btnSil.TabIndex = 35;
             this.btnSil.Text = "Sil";
             this.btnSil.UseVisualStyleBackColor = true;
             this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
-            // Duzelt
+            // FormHastalar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnSil);
             this.Controls.Add(this.txtID);
-            this.Controls.Add(this.btnDuzelt);
             this.Controls.Add(this.btnYeniKayit);
             this.Controls.Add(this.dgvHastalar);
             this.Controls.Add(this.btnKaydet);
@@ -263,8 +251,9 @@ namespace WithClassSQL_2_CRUD
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Duzelt";
+            this.Name = "FormHastalar";
             this.Text = "Duzelt";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormHastalar_FormClosing);
             this.Load += new System.EventHandler(this.Duzelt_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHastalar)).EndInit();
             this.ResumeLayout(false);
@@ -289,7 +278,6 @@ namespace WithClassSQL_2_CRUD
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnDuzelt;
         private System.Windows.Forms.Button btnYeniKayit;
         private System.Windows.Forms.DataGridView dgvHastalar;
         private System.Windows.Forms.TextBox txtID;

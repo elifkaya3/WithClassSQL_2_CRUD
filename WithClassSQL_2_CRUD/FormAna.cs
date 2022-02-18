@@ -15,6 +15,7 @@ namespace WithClassSQL_2_CRUD
     {
         SqlConnection bag;
         VeriTabani vt = new VeriTabani();
+        string sorguCumlesi;
 
         public FormAna()
         {
@@ -22,8 +23,9 @@ namespace WithClassSQL_2_CRUD
         }
         void Doldur()
         {
-            
-            dgvHastalar.DataSource =vt.HastalariGetir(); 
+            sorguCumlesi = "SELECT * FROM tblBolumler ";
+            dgvHastalar.DataSource =vt.KayıtListele(sorguCumlesi);
+            dgvHastalar.Columns[0].Visible = false;
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -32,7 +34,9 @@ namespace WithClassSQL_2_CRUD
 
         private void btnYeniKayit_Click(object sender, EventArgs e)
         {
-           
+            sorguCumlesi = "SELECT * FROM tblHastalar";
+            dgvHastalar.DataSource = vt.KayıtListele(sorguCumlesi);
+
         }
 
         private void FormAna_Activated(object sender, EventArgs e)
@@ -45,10 +49,24 @@ namespace WithClassSQL_2_CRUD
             Application.Exit();
         }
 
-        private void btnDuzelt_Click(object sender, EventArgs e)
+        /*private void btnDuzelt_Click(object sender, EventArgs e)
         {
-            Duzelt formYeni = new Duzelt();
-            formYeni.Show();
+
+            //FormHastalar formduzelt = new FormHastalar();
+            //formduzelt.Show();
+        }*/
+
+        private void btnHastalar_Click(object sender, EventArgs e)
+        {
+            FormHastalar formhst = new FormHastalar();
+            formhst.Show();
+            this.Hide();
+        }
+
+        private void btnBolumler_Click(object sender, EventArgs e)
+        {
+            FormBolumler formhst = new FormBolumler();
+            formhst.Show();
         }
     }
 }

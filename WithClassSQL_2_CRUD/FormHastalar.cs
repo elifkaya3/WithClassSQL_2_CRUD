@@ -12,34 +12,42 @@ using System.Windows.Forms;
 
 namespace WithClassSQL_2_CRUD
 {
-    public partial class Duzelt : Form
+    public partial class FormHastalar : Form
     {
         VeriTabani vt = new VeriTabani();
         SqlConnection bag;
         SqlCommand komut;
+        string sorguCumlesi;
 
-        public Duzelt()
+        public FormHastalar()
         {
             InitializeComponent();
         }
 
         private void btnYeniKayit_Click(object sender, EventArgs e)
         {
+            FormBolumler formhst = new FormBolumler();
+            formhst.Show();
+            this.Hide();
 
-            if(vt.KontrolEt(txtTc.Text,txtAd.Text,txtSoyad.Text,txtAdres.Text,cmbCinsiyet.Text)
-                {
+           /* if(!vt.KontrolEt(txtTc.Text,txtAd.Text,txtSoyad.Text,txtAdres.Text,cmbCinsiyet.Text))
+            {
                 string Cinsiyet = cmbCinsiyet.Text == "Kadın" ? "K" : "E";
-                vt.Ekle(txtTc.Text, txtAd.Text, txtSoyad.Text, Cinsiyet, txtAdres.Text, txtTelefon.Text, txtMail.Text);
+                string ID = dgvHastalar.CurrentRow.Cells[0].Value.ToString();
+                vt.islem(sorguCumlesi);
                 Doldur();
             }
             else
             {
+                MessageBox.Show("Lütfen boş bırakılan alanları doldurun.");
 
-            }
+            }*/
+           
         }
         void Doldur()
         {
-            dgvHastalar.DataSource = vt.HastalariGetir();
+            dgvHastalar.DataSource = vt.KayıtListele(sorguCumlesi);
+            sorguCumlesi = $"SELECT *FROM tblHastalar";
 
         }
         void Aktar()
@@ -61,7 +69,9 @@ namespace WithClassSQL_2_CRUD
         
         private void btnDuzelt_Click(object sender, EventArgs e)
         {
-            vt.Duzelt(txtTc.Text, txtAd.Text, txtSoyad.Text,  cmbCinsiyet.Text,  txtAdres.Text, txtTelefon.Text, txtMail.Text, txtID.Text);
+            string ID = dgvHastalar.CurrentRow.Cells[0].Value.ToString();
+
+            sorguCumlesi = $"UPDATE tblHastalar SET TcNo='{txtTc.Text}', Ad='{txtAd.Text}', Soyad='{txtSoyad.Text}', Cinsiyet='{cmbCinsiyet.Text}', Adres='{txtAdres.Text},'Telefon='{txtTelefon.Text}',Mail='{txtMail.Text}' WHERE ID='{txtID.Text}'";
         }
 
         private void dgvHastalar_CellEnter(object sender, DataGridViewCellEventArgs e)
@@ -71,7 +81,18 @@ namespace WithClassSQL_2_CRUD
 
         private void btnSil_Click(object sender, EventArgs e)
         {
-            vt.Sil(txtTc.Text,txtAd.Text,txtSoyad.Text, cmbCinsiyet.Text, txtAdres.Text,txtTelefon.Text,txtMail.Text,txtID.Text);
+            string ID = dgvHastalar.CurrentRow.Cells[0].Value.ToString();
+            sorguCumlesi = $"DELETE tblHastalar WHERE ID='{ID}'";
+            vt.islem(sorguCumlesi);
+            Doldur();
+            // vt.Sil(txtTc.Text,txtAd.Text,txtSoyad.Text, cmbCinsiyet.Text, txtAdres.Text,txtTelefon.Text,txtMail.Text,txtID.Text);
+        }
+
+        private void FormHastalar_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            FormHastalar bolumform = new FormHastalar();
+            bolumform.Show();
+            this.Hide();
         }
     }
 }

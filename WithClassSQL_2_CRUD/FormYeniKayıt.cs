@@ -13,6 +13,7 @@ namespace WithClassSQL_2_CRUD
     public partial class FormYeniKayıt : Form
     {
         VeriTabani vt = new VeriTabani();
+        string sorguCumlesi;
         public FormYeniKayıt()
         {
             InitializeComponent();
@@ -20,15 +21,31 @@ namespace WithClassSQL_2_CRUD
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
-            string Cinsiyet=cmbCinsiyet.Text=="Kadın"?"K":"E";
-            vt.Ekle(txtTc.Text,txtAd.Text,txtSoyad.Text,Cinsiyet,txtAdres.Text,txtTelefon.Text,txtMail.Text);
-       
+            if (vt.KontrolEt(txtTc.Text,txtAd.Text,txtSoyad.Text,cmbCinsiyet.Text,txtAdres.Text,txtTelefon.Text,txtMail.Text))
+            {
+                string Cinsiyet = cmbCinsiyet.Text == "Kadın" ? "K" : "E";
+                sorguCumlesi = $"INSERT INTO tblHastalar VALUES('{txtTc.Text}','{txtAd.Text}','{txtSoyad.Text}','{Cinsiyet}','{txtAdres.Text}','{txtTelefon.Text}','{txtMail.Text}')";
+                vt.islem(sorguCumlesi);
+                temizle();
+            }
+            else
+            {
+               MessageBox.Show("Lütfen boş bırakılan alanları doldurun.");
+            }
         }
+        void temizle()
+        {
+            txtAd.Clear();
+            txtSoyad.Clear();
+            txtAdres.Clear();
+            txtTelefon.Clear();
+            txtMail.Clear();
 
+        }
         private void FormYeniKayıt_FormClosing(object sender, FormClosingEventArgs e)
         {
-            FormAna formAna1 = new FormAna();
-            formAna1.Show();
+            FormBolumler formbolum = new FormBolumler();
+            formbolum.Show();
             this.Hide();
         }
 

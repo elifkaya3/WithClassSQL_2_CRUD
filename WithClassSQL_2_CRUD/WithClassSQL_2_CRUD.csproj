@@ -51,11 +51,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="Duzelt.cs">
+    <Compile Include="FormBolumler.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Duzelt.Designer.cs">
-      <DependentUpon>Duzelt.cs</DependentUpon>
+    <Compile Include="FormBolumler.Designer.cs">
+      <DependentUpon>FormBolumler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDoktorlar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDoktorlar.Designer.cs">
+      <DependentUpon>FormDoktorlar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHastalar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHastalar.Designer.cs">
+      <DependentUpon>FormHastalar.cs</DependentUpon>
     </Compile>
     <Compile Include="FormAna.cs">
       <SubType>Form</SubType>
@@ -69,14 +81,29 @@
     <Compile Include="FormYeniKayıt.Designer.cs">
       <DependentUpon>FormYeniKayıt.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormRandevu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRandevu.Designer.cs">
+      <DependentUpon>FormRandevu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VeriTabani.cs" />
-    <EmbeddedResource Include="Duzelt.resx">
-      <DependentUpon>Duzelt.cs</DependentUpon>
+    <EmbeddedResource Include="FormBolumler.resx">
+      <DependentUpon>FormBolumler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDoktorlar.resx">
+      <DependentUpon>FormDoktorlar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHastalar.resx">
+      <DependentUpon>FormHastalar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAna.resx">
       <DependentUpon>FormAna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRandevu.resx">
+      <DependentUpon>FormRandevu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormYeniKayıt.resx">
       <DependentUpon>FormYeniKayıt.cs</DependentUpon>
